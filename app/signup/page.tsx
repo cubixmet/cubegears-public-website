@@ -51,6 +51,15 @@ export default function SignupPage() {
             </div>
             <h2 className="mt-5 text-[30px] font-extrabold tracking-[-.045em] text-slate-950 sm:text-[36px]">Create your account</h2>
             <p className="mt-3 text-[15px] leading-7 text-slate-600">Enter your workshop and owner contact details to begin registration. A password setup link is sent after successful registration.</p>
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-blue-100 bg-blue-50/70 px-4 py-3">
+              <p className="text-[14px] font-medium text-slate-700">Already have a workshop account?</p>
+              <a
+                href="https://cubegears-company-panel-three.vercel.app/login"
+                className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-blue-600 bg-white px-5 text-[15px] font-bold text-blue-700 transition hover:bg-blue-600 hover:text-white"
+              >
+                Log in <span aria-hidden="true">→</span>
+              </a>
+            </div>
             <div className="my-8 h-px bg-slate-100" />
             <SignupForm />
             <p className="mt-6 border-t border-slate-100 pt-5 text-[13px] leading-6 text-slate-500">Your details are used to create your workshop account. Never share your password through a signup request.</p>

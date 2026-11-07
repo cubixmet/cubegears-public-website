@@ -6,7 +6,7 @@ import { PageHero, SectionLead } from "@/components/MarketingBlocks";
 
 export const metadata: Metadata = {
   title: "Contact & Onboarding",
-  description: "Find the right path to get started with CubeGears or learn more about workshop management.",
+  description: "Find the right path to get started with CubixGears or learn more about workshop management.",
 };
 
 const topics = [
@@ -21,17 +21,17 @@ export default function ContactPage() {
   return (
     <>
       <PublicHeader />
-      <main id="main-content" className="bg-[#f7f9fd]">
-        <PageHero eyebrow="GET STARTED WITH CUBEGEARS" title="Let's get your workshop moving." description="Ready to create a workspace, or still exploring your options? Find the next step that works for your team.">
+      <main id="main-content" className="bg-[#f5f8ff]">
+        <PageHero eyebrow="GET STARTED WITH CUBEGEARS" title="Let's get your workshop moving." description="Run a car garage or a two-wheeler service centre? Discover the next step for your team." image="bikeTeam">
           <div className="responsive-actions">
-            <Link href="/signup" className="button-primary focus-ring inline-flex">Create workshop account <span aria-hidden="true">↗</span></Link>
+            <Link href="/signup" className="button-primary focus-ring inline-flex">Create workshop account</Link>
             {contactEmail ? (
-              <a href={"mailto:" + contactEmail} className="button-secondary focus-ring">Email our team <span aria-hidden="true">↗</span></a>
+              <a href={"mailto:" + contactEmail} className="button-secondary focus-ring">Email our team</a>
             ) : (
-              <Link href="/how-it-works" className="button-secondary focus-ring">See how it works <span aria-hidden="true">→</span></Link>
+              <Link href="/how-it-works" className="button-secondary focus-ring">See how it works</Link>
             )}
           </div>
-          {contactEmail ? <p className="mt-4 break-all text-[14px] font-semibold text-slate-600">Email: <a className="focus-ring underline decoration-blue-300 underline-offset-4 hover:text-blue-700" href={"mailto:" + contactEmail}>{contactEmail}</a></p> : null}
+          {contactEmail ? <p className="mt-4 break-all text-[14px] font-semibold text-slate-600">Email: <a className="focus-ring underline decoration-blue-300 underline-offset-4 hover:text-[#245bd5]" href={"mailto:" + contactEmail}>{contactEmail}</a></p> : null}
         </PageHero>
 
         <section className="section-pad">
@@ -41,20 +41,20 @@ export default function ContactPage() {
               {topics.map((topic) => (
                 <article key={topic.number} className="marketing-card surface-card-hover flex flex-col p-6 sm:p-8">
                   <span className="marketing-number" aria-hidden="true">{topic.number}</span>
-                  <h3 className="mt-7 text-[22px] font-extrabold tracking-[-.035em] text-slate-950">{topic.title}</h3>
+                  <h3 className="mt-7 text-[22px] font-extrabold tracking-[-.035em] text-[#17283d]">{topic.title}</h3>
                   <p className="mt-4 flex-1 text-[15px] leading-7 text-slate-600">{topic.description}</p>
-                  <Link href={topic.href} className="focus-ring mt-6 inline-flex w-fit items-center gap-2 rounded-lg py-2 text-[14px] font-extrabold text-blue-700 hover:text-blue-900">{topic.label} <span aria-hidden="true">→</span></Link>
+                  <Link href={topic.href} className="focus-ring mt-6 inline-flex w-fit items-center gap-2 rounded-lg py-2 text-[14px] font-extrabold text-[#245bd5] hover:text-[#174399]">{topic.label}</Link>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="border-t border-slate-200 bg-white py-14 sm:py-18">
+        <section className=" border-[#e8effa] bg-white py-14 sm:py-18">
           <div className="page-shell grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
             <div>
-              <SectionLead eyebrow="ACCOUNT ONBOARDING" title="What happens when you sign up?" description="Start with your workshop details and the owner's contact information. Registration is connected to the CubeGears account setup service." />
-              <Link href="/signup" className="button-primary focus-ring mt-7 inline-flex">Start registration <span aria-hidden="true">↗</span></Link>
+              <SectionLead eyebrow="ACCOUNT ONBOARDING" title="What happens when you sign up?" description="Start with your workshop details and the owner's contact information. Registration is connected to the CubixGears account setup service." />
+              <Link href="/signup" className="button-primary focus-ring mt-7 inline-flex">Start registration</Link>
             </div>
             <ol className="marketing-card space-y-0 p-6 sm:p-8">
               {[
@@ -62,7 +62,7 @@ export default function ContactPage() {
                 ["02", "Submit registration", "Your details are sent securely to the registration service."],
                 ["03", "Set up access", "Follow the secure password setup email once registration succeeds."],
               ].map(([number, title, description], index) => (
-                <li key={number} className={"flex items-start gap-4 " + (index < 2 ? "mb-5 border-b border-slate-100 pb-5" : "")}>
+                <li key={number} className={"flex items-start gap-4 " + (index < 2 ? "mb-5 border-[#edf2fa] pb-5" : "")}>
                   <span className="marketing-number" aria-hidden="true">{number}</span>
                   <div><h3 className="text-[16px] font-extrabold text-slate-900">{title}</h3><p className="mt-1 text-[14px] leading-7 text-slate-600">{description}</p></div>
                 </li>

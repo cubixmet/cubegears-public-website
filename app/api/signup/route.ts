@@ -4,11 +4,18 @@ type SignupRequest = {
   workshopName: string;
   ownerName: string;
   mobile: string;
-  email: string;
+  email?: string;
+  whatsappConsent?: boolean;
 };
 
 function getBackendUrl(): string | null {
-  const baseUrl = process.env.BACKEND_API_URL?.trim().replace(/\/$/, "");
+  // Local development should work with Django on port 8000 even before
+  // .env.local is created. Never use localhost as a production fallback:
+  // a deployed Next.js server cannot reach the developer's laptop.
+  const configuredUrl = process.env.BACKEND_API_URL?.trim();
+  const baseUrl = (configuredUrl || (
+    process.env.NODE_ENV === "production" ? "" : "http://127.0.0.1:8000/api/v1"
+  )).replace(/\/+$/, "");
   const endpoint = (process.env.BACKEND_SIGNUP_PATH || "/auth/signup").trim();
   if (!baseUrl) return null;
 
@@ -23,11 +30,16 @@ function getBackendUrl(): string | null {
 function isValidPayload(value: unknown): value is SignupRequest {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   const p = value as Record<string, unknown>;
+  const email = typeof p.email === "string" ? p.email.trim() : "";
+  const whatsappConsent = p.whatsappConsent === true;
   return (
     typeof p.workshopName === "string" && p.workshopName.trim().length >= 2 && p.workshopName.length <= 150 &&
     typeof p.ownerName === "string" && p.ownerName.trim().length >= 2 && p.ownerName.length <= 120 &&
     typeof p.mobile === "string" && /^\+?\d{10,15}$/.test(p.mobile.replace(/[\s()-]/g, "")) &&
-    typeof p.email === "string" && p.email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(p.email.trim())
+    (p.email === undefined || (typeof p.email === "string" && p.email.length <= 254)) &&
+    (!email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) &&
+    (p.whatsappConsent === undefined || typeof p.whatsappConsent === "boolean") &&
+    Boolean(email || whatsappConsent)
   );
 }
 
@@ -53,14 +65,22 @@ export async function POST(request: Request) {
 
   const backendUrl = getBackendUrl();
   if (!backendUrl) {
-    return NextResponse.json({ message: "Registration is temporarily unavailable. Please contact support." }, { status: 503 });
+    console.error("[public-signup] Backend endpoint is not configured");
+    return NextResponse.json(
+      {
+        message: "Registration is temporarily unavailable. Please contact support.",
+        code: "SIGNUP_BACKEND_NOT_CONFIGURED",
+      },
+      { status: 503 },
+    );
   }
 
   const backendPayload = {
     workshop_name: payload.workshopName.trim(),
     owner_name: payload.ownerName.trim(),
     mobile: payload.mobile.replace(/[\s()-]/g, ""),
-    email: payload.email.trim().toLowerCase(),
+    email: (payload.email || "").trim().toLowerCase(),
+    whatsapp_consent: payload.whatsappConsent === true,
   };
 
   try {
@@ -69,7 +89,9 @@ export async function POST(request: Request) {
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(backendPayload),
       cache: "no-store",
-      signal: AbortSignal.timeout(12000),
+      // Allow Django to finish its DB commit and setup-email dispatch.
+      // A premature timeout can hide a successfully created workshop.
+      signal: AbortSignal.timeout(25000),
     });
 
     // Django/DRF validation errors are JSON. An HTML 400 often indicates an
@@ -103,8 +125,35 @@ export async function POST(request: Request) {
     if (response.status >= 500) {
       return NextResponse.json({ message: "Registration is temporarily unavailable." }, { status: 502 });
     }
+    // Log only validation field names and an opaque request reference.
+    // Never log workshop data, email/mobile values, or setup secrets.
+    if (response.status === 400) {
+      console.warn("[public-signup] Backend rejected registration", {
+        status: response.status,
+        fields: Object.keys(data),
+        requestId: response.headers.get("x-request-id") || undefined,
+      });
+    }
     return NextResponse.json(data, { status: response.status });
-  } catch {
-    return NextResponse.json({ message: "Unable to reach the CubeGears registration service. Please try again." }, { status: 502 });
+  } catch (error) {
+    // Log only connection metadata. Never log signup fields, tokens or
+    // upstream response bodies. Do not retry a POST: it may create duplicates.
+    const timedOut = error instanceof Error &&
+      (error.name === "TimeoutError" || error.name === "AbortError");
+    console.error("[public-signup] Backend connection failed", {
+      host: new URL(backendUrl).host,
+      reason: timedOut ? "timeout" : "network",
+    });
+    return NextResponse.json(
+      {
+        message: timedOut
+          ? "Registration confirmation timed out. Your workshop may already be created. Check your email before submitting again; contact support if you cannot access your account."
+          : process.env.NODE_ENV !== "production"
+            ? "CubixGears Django backend is unreachable. Start it on port 8000 or correct BACKEND_API_URL in .env.local."
+            : "Unable to reach the CubixGears registration service. Please contact support.",
+        code: timedOut ? "SIGNUP_BACKEND_TIMEOUT" : "SIGNUP_BACKEND_UNREACHABLE",
+      },
+      { status: timedOut ? 504 : 502 },
+    );
   }
 }

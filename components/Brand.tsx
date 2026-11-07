@@ -2,12 +2,10 @@ import Link from "next/link";
 
 export function Brand({ light = false, onNavigate }: { light?: boolean; onNavigate?: () => void }) {
   return (
-    <Link href="/" onClick={onNavigate} aria-label="CubeGears — Home" className="brand-link focus-ring">
-      <span aria-hidden="true" className="brand-symbol">
-        <span className="brand-symbol-inner">CG</span>
-      </span>
-      <span className={light ? "brand-name text-white" : "brand-name text-slate-950"}>
-        Cube<span className="text-blue-500">Gears</span>
+    <Link href="/" onClick={onNavigate} aria-label="CubixGears — Home" className="brand-link focus-ring">
+      <span className={light ? "brand-name text-white" : "brand-name text-[#17283d]"}>
+        Cubix<span className="text-[#2563eb]">Gears</span>
+        <span className="brand-descriptor">WORKSHOP SOFTWARE</span>
       </span>
     </Link>
   );

@@ -83,12 +83,12 @@ export function PublicHeader() {
             aria-current={pathname === "/signup" ? "page" : undefined}
             className="button-primary focus-ring hidden sm:inline-flex"
           >
-            Get started <span aria-hidden="true">↗</span>
+            Get started
           </Link>
           <button
             ref={menuButtonRef}
             type="button"
-            className="focus-ring inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-900 transition hover:border-blue-200 hover:bg-blue-50 xl:hidden"
+            className="focus-ring inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-[#252729] transition hover:bg-blue-50 xl:hidden"
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
@@ -130,7 +130,7 @@ export function PublicHeader() {
                 (current(href) ? "bg-blue-50 text-blue-700" : "text-slate-700 hover:bg-slate-50")}
             >
               <span>{label}</span>
-              {current(href) ? <span className="text-xs font-extrabold text-blue-600">Current</span> : <span aria-hidden="true" className="text-slate-400">↗</span>}
+              {current(href) ? <span className="text-xs font-extrabold text-[#245bd5]">Current</span> : null}
             </Link>
           ))}
           <Link
@@ -140,7 +140,7 @@ export function PublicHeader() {
             aria-current={pathname === "/signup" ? "page" : undefined}
             className="button-primary focus-ring mt-3 inline-flex w-full justify-center sm:hidden"
           >
-            Create workshop account <span aria-hidden="true">↗</span>
+            Create workshop account
           </Link>
         </nav>
       </div>

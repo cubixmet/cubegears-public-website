@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const groups = [
   { number: "01", title: "Customers & vehicles", desc: "See customer profiles, vehicle details and service history together each time a vehicle returns.", items: ["Customer records", "Vehicle profiles", "Service history", "Balances"] },
-  { number: "02", title: "Service & job cards", desc: "Give each job a clear path from initial inspection through estimates, repair work and delivery.", items: ["Job cards", "Inspections", "Estimates", "Quality checks"] },
+  { number: "02", title: "Service & job cards", desc: "Give car and motorcycle service jobs a clear path from inspection through estimates, repair and delivery.", items: ["Job cards", "Inspections", "Estimates", "Quality checks"] },
   { number: "03", title: "Stock & inventory", desc: "Keep track of the parts and consumables your team uses during daily service operations.", items: ["Parts catalogue", "Stock movements", "Suppliers", "Stock visibility"] },
   { number: "04", title: "Invoices & expenses", desc: "Make the handoff from parts and labour to estimates, invoices and payment records easier.", items: ["Estimates", "Invoices", "Payment records", "Expenses"] },
   { number: "05", title: "Staff & attendance", desc: "Keep your people, access roles and attendance information in a shared workspace.", items: ["Staff", "Roles", "Attendance", "Leave & shifts"] },
@@ -22,12 +22,12 @@ export default function FeaturesPage() {
   return (
     <>
       <PublicHeader />
-      <main id="main-content" className="bg-[#f7f9fd]">
-        <PageHero eyebrow="ONE CONNECTED WORKSPACE" title="Tools that work together, just like your team." description="From the service desk to the workshop floor, CubeGears keeps the details of each service visit in one place." center>
+      <main id="main-content" className="bg-[#f5f8ff]">
+        <PageHero eyebrow="ONE CONNECTED WORKSPACE" title="Tools that work together, just like your team." description="For car garages and motorcycle service centres, CubixGears keeps every service visit connected from check-in to delivery." center image="garage">
           <div className="flex flex-wrap items-center justify-center gap-2">
-            {["Customer & vehicle", "Job card", "Parts & labour", "Invoice"].map((step, index) => (
+            {["Customer & vehicle", "Job card", "Parts & labour", "Invoice"].map((step) => (
               <div key={step} className="flex items-center gap-2">
-                {index > 0 ? <span aria-hidden="true" className="text-blue-400">→</span> : null}
+                
                 <span className="marketing-chip">{step}</span>
               </div>
             ))}
@@ -44,9 +44,9 @@ export default function FeaturesPage() {
                     <span className="marketing-number" aria-hidden="true">{group.number}</span>
                     <span className="text-[11px] font-extrabold uppercase tracking-[.15em] text-slate-400">Workshop tools</span>
                   </div>
-                  <h3 className="mt-7 text-[23px] font-extrabold tracking-[-.04em] text-slate-950 sm:text-[25px]">{group.title}</h3>
+                  <h3 className="mt-7 text-[23px] font-extrabold tracking-[-.04em] text-[#17283d] sm:text-[25px]">{group.title}</h3>
                   <p className="mt-3 text-[15px] leading-7 text-slate-600">{group.desc}</p>
-                  <div className="mt-6 flex flex-wrap gap-2 border-t border-slate-100 pt-6">
+                  <div className="mt-6 flex flex-wrap gap-2 border-[#edf2fa] pt-6">
                     {group.items.map((item) => <span key={item} className="marketing-chip">{item}</span>)}
                   </div>
                 </article>
@@ -55,11 +55,11 @@ export default function FeaturesPage() {
           </div>
         </section>
 
-        <section className="border-y border-slate-200 bg-white py-14 sm:py-18">
+        <section className=" border-[#e8effa] bg-white py-14 sm:py-18">
           <div className="page-shell grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:items-center">
             <div>
               <SectionLead eyebrow="CONNECTED BY DESIGN" title="One service visit. A clearer record." description="Keep the steps of a job together, from intake to final billing, instead of switching between spreadsheets and chat threads." />
-              <Link href="/how-it-works" className="focus-ring mt-6 inline-flex items-center gap-2 rounded-lg py-2 font-bold text-blue-700 hover:text-blue-900">See the service workflow <span aria-hidden="true">→</span></Link>
+              <Link href="/how-it-works" className="focus-ring mt-6 inline-flex items-center gap-2 rounded-lg py-2 font-bold text-[#245bd5] hover:text-[#174399]">See the service workflow</Link>
             </div>
             <div className="marketing-card p-6 sm:p-8">
               {[
@@ -67,13 +67,13 @@ export default function FeaturesPage() {
                 ["02", "Service", "Job notes, parts and work status"],
                 ["03", "Handover", "Invoice and service history"],
               ].map(([number, title, body], index) => (
-                <div key={number} className={"flex gap-4 " + (index < 2 ? "border-b border-slate-100 pb-5 mb-5" : "")}>
+                <div key={number} className={"flex gap-4 " + (index < 2 ? " border-[#edf2fa] pb-5 mb-5" : "")}>
                   <span className="marketing-number" aria-hidden="true">{number}</span>
                   <div>
-                    <p className="text-[16px] font-extrabold text-slate-950">{title}</p>
+                    <p className="text-[16px] font-extrabold text-[#17283d]">{title}</p>
                     <p className="mt-1 text-[14px] leading-6 text-slate-600">{body}</p>
                   </div>
-                  <span className="ml-auto self-center text-blue-500" aria-hidden="true">✓</span>
+                  <span className="ml-auto self-center text-[#2563eb]" aria-hidden="true">✓</span>
                 </div>
               ))}
             </div>

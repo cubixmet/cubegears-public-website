@@ -3,6 +3,7 @@ export type WorkshopSignupPayload = {
   ownerName: string;
   mobile: string;
   email: string;
+  whatsappConsent: boolean;
 };
 
 type SignupResponse = {

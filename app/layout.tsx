@@ -11,22 +11,22 @@ const siteUrl = process.env.SITE_URL;
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: {
-    default: "CubeGears | Workshop Management Software",
-    template: "%s | CubeGears",
+    default: "CubixGears | Workshop Management Software",
+    template: "%s | CubixGears",
   },
   description:
-    "Manage workshop customers, vehicles, job cards, inventory, invoices, staff and reports in one connected platform.",
-  applicationName: "CubeGears",
+    "Manage car and motorcycle workshop customers, vehicles, job cards, inventory, invoices, staff and reports in one connected platform.",
+  applicationName: "CubixGears",
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
-    siteName: "CubeGears",
-    title: "CubeGears | Workshop Management Software",
-    description: "A connected platform for modern vehicle service workshops.",
+    siteName: "CubixGears",
+    title: "CubixGears | Workshop Management Software",
+    description: "A connected platform for modern car and motorcycle service workshops.",
   },
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#071427" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#17385e" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

@@ -13,16 +13,18 @@ test("signup proxies only POST and retains backend URL config", () => {
   assert.match(route, /process\.env\.BACKEND_SIGNUP_PATH/);
   assert.match(route, /"\/auth\/signup"/);
   assert.match(route, /cache: "no-store"/);
-  assert.match(route, /signal: AbortSignal\.timeout\(12000\)/);
+  assert.match(route, /signal: AbortSignal\.timeout\(25000\)/);
 });
 
 test("submit normalizes contact details and API proxy repeats safe normalization", () => {
-  assert.match(form, /const mobile = form\.mobile\.replace\(\/\[\\s\(\)-\]\/g, ""\)/);
+  assert.match(form, /const localMobile = form\.mobile\.replace/);
+  assert.ok(form.includes("const mobile = `${form.countryCode}${localMobile}`;"));
   assert.match(form, /const email = form\.email\.trim\(\)\.toLowerCase\(\)/);
   assert.match(form, /workshopName\.length < 2/);
   assert.match(form, /ownerName\.length < 2/);
   assert.match(route, /mobile: payload\.mobile\.replace\(\/\[\\s\(\)-\]\/g, ""\)/);
-  assert.match(route, /email: payload\.email\.trim\(\)\.toLowerCase\(\)/);
+  assert.ok(route.includes('email: (payload.email || "").trim().toLowerCase(),'));
+  assert.ok(route.includes('whatsapp_consent: payload.whatsappConsent === true,'));
   assert.doesNotMatch(route, /mobile: payload\.mobile\.trim\(\)/);
 });
 
@@ -44,4 +46,18 @@ test("Django 400 email and other field errors are shown in context", () => {
   assert.match(client, /throw new Error\(getApiErrorMessage\(data, response\.status\)\)/);
   assert.match(route, /return NextResponse\.json\(data, \{ status: response\.status \}\)/);
   assert.match(form, /router\.push\("\/signup\/success"\)/);
+});
+
+
+test("owner signup uses email without WhatsApp choice or consent rows", () => {
+  assert.match(route, /email\?: string/);
+  assert.match(route, /whatsappConsent\?: boolean/);
+  assert.match(route, /Boolean\(email \|\| whatsappConsent\)/);
+  assert.match(route, /whatsapp_consent: payload\.whatsappConsent === true/);
+  assert.match(form, /if \(!email\)/);
+  assert.match(form, /whatsappConsent: false/);
+  assert.match(form, /htmlFor="email"/);
+  assert.doesNotMatch(form, /setupChannel|Receive setup link on WhatsApp|type="checkbox"/);
+  assert.doesNotMatch(form, /I confirm I am authorised|I consent to receive the secure password/);
+  assert.match(client, /whatsappConsent: boolean/);
 });

@@ -27,7 +27,7 @@ export default function ForWorkshopsPage() {
           <div className="page-shell relative grid items-center gap-10 py-16 sm:py-22 lg:grid-cols-[1.05fr_.95fr] lg:gap-14">
             <div>
               <p className="eyebrow !text-blue-300">BUILT FOR SERVICE TEAMS</p>
-              <h1 className="marketing-text-balance mt-5 text-[clamp(38px,5vw,64px)] font-extrabold leading-[1.09] tracking-[-.058em]">Built for cars, bikes and the teams servicing them.</h1>
+              <h1 className="marketing-text-balance mt-5 text-[clamp(38px,5vw,64px)] font-extrabold leading-[1.09] tracking-[-.058em]">Built for cars, bikes and the teams servicing them</h1>
               <p className="mt-6 max-w-xl text-[16px] leading-8 text-slate-300 sm:text-[17px]">Keep the front desk, technicians and managers connected around every car and motorcycle service visit.</p>
               <div className="responsive-actions mt-8">
                 <Link href="/signup" className="button-primary focus-ring inline-flex">Create workshop account</Link>
@@ -47,7 +47,7 @@ export default function ForWorkshopsPage() {
 
         <section className="section-pad">
           <div className="page-shell">
-            <SectionLead eyebrow="A FIT FOR DIFFERENT TEAMS" title="One foundation. Different workshop workflows." description="From local car garages and bike workshops to multi-team service centres, keep the day-to-day work organised." />
+            <SectionLead eyebrow="A FIT FOR DIFFERENT TEAMS" title="One foundation. Different workshop workflows" description="From local car garages and bike workshops to multi-team service centres, keep the day-to-day work organised." />
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               {workshopTypes.map((item) => (
                 <article key={item.number} className="marketing-card surface-card-hover flex flex-col p-7 sm:p-9">
@@ -63,7 +63,7 @@ export default function ForWorkshopsPage() {
             </div>
           </div>
         </section>
-        <BottomCTA eyebrow="A SIMPLER WORKSHOP DAY" title="Give your team one place to work." description="See the service process in action, then set up the workspace that fits your team." href="/how-it-works" label="See the workflow" secondaryHref="/signup" secondaryLabel="Get started" />
+        <BottomCTA eyebrow="A SIMPLER WORKSHOP DAY" title="Give your team one place to work" description="See the service process in action, then set up the workspace that fits your team." href="/how-it-works" label="See the workflow" secondaryHref="/signup" secondaryLabel="Get started" />
       </main>
       <PublicFooter />
     </>

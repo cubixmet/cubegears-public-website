@@ -36,7 +36,7 @@ export default function Home() {
             <div className="reveal relative z-10">
               <p className="eyebrow">THE MODERN WORKSHOP WORKSPACE</p>
               <h1 className="mt-6 max-w-[680px] text-[clamp(43px,5.3vw,76px)] font-[850] leading-[1.04] tracking-[-.065em] text-[#151719]">
-                Every service job. <span className="text-[#2563eb]">One clear system.</span>
+                Every service job. <span className="text-[#2563eb]">One clear system</span>
               </h1>
               <p className="mt-6 max-w-xl text-[17px] leading-[1.85] text-[#63666b]">
                 Keep your car garage or motorcycle service centre moving with connected job cards, customers, parts, estimates, invoices and staff tools.
@@ -54,7 +54,7 @@ export default function Home() {
             <div className="grid min-h-0 grid-cols-1 gap-3 sm:min-h-[480px] sm:grid-cols-[1.3fr_.7fr]">
               <WorkshopPhoto photo="garage" priority className="h-[345px] min-h-0 sm:h-full sm:min-h-[480px]" caption="Automotive service">
                 <div className="photo-label"><span className="photo-label-dot" /> CAR SERVICE</div>
-                <h2 className="photo-punchline mt-4">Give every vehicle a better service journey.</h2>
+                <h2 className="photo-punchline mt-4">Give every vehicle a better service journey</h2>
               </WorkshopPhoto>
               <div className="grid min-w-0 grid-cols-2 grid-rows-1 gap-3 sm:grid-cols-1 sm:grid-rows-2">
                 <WorkshopPhoto photo="bike" priority className="h-[190px] min-h-0 sm:h-full" shade={false}>
@@ -71,7 +71,7 @@ export default function Home() {
 
         <section className="section-pad bg-white">
           <div className="page-shell">
-            <SectionLead eyebrow="CONNECTED CAPABILITIES" title="Built for the rhythm of your workshop." description="Manage the work behind each service visit without switching between spreadsheets, paper and scattered notes." />
+            <SectionLead eyebrow="CONNECTED CAPABILITIES" title="Built for the rhythm of your workshop" description="Manage the work behind each service visit without switching between spreadsheets, paper and scattered notes." />
             <div className="mt-11 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {modules.map((module) => (
                 <article key={module.number} className="marketing-card surface-card-hover flex flex-col p-6 sm:p-8">
@@ -92,10 +92,10 @@ export default function Home() {
           <div className="page-shell grid items-center gap-12 lg:grid-cols-2">
             <WorkshopPhoto photo="bikeTeam" className="h-[340px] sm:h-[500px]" caption="Two-wheeler service" shade>
               <div className="photo-label"><span className="photo-label-dot" /> FROM THE WORKSHOP FLOOR</div>
-              <h2 className="photo-punchline mt-5">Your team stays connected, wherever the job happens.</h2>
+              <h2 className="photo-punchline mt-5">Your team stays connected, wherever the job happens</h2>
             </WorkshopPhoto>
             <div>
-              <SectionLead eyebrow="FOR CARS AND TWO-WHEELERS" title="One approach, different service needs." description="Whether you service a family car, motorbike or scooter, CubixGears keeps the job information, service history and daily operations organised." />
+              <SectionLead eyebrow="FOR CARS AND TWO-WHEELERS" title="One approach, different service needs" description="Whether you service a family car, motorbike or scooter, CubixGears keeps the job information, service history and daily operations organised." />
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-xl border border-[#e5edf9] bg-white p-5">
                   <h3 className="mt-4 text-lg font-extrabold">Automotive garages</h3>
@@ -113,7 +113,7 @@ export default function Home() {
 
         <section className="section-pad bg-white">
           <div className="page-shell">
-            <SectionLead eyebrow="A CLEARER SERVICE JOURNEY" title="From check-in to the final handover." description="A practical, connected flow for technicians, advisors and workshop owners." center />
+            <SectionLead eyebrow="A CLEARER SERVICE JOURNEY" title="From check-in to the final handover" description="A practical, connected flow for technicians, advisors and workshop owners." center />
             <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {stages.map((stage) => (
                 <article key={stage.number} className="marketing-card p-6 sm:p-7">
@@ -130,7 +130,7 @@ export default function Home() {
         <section className="section-pad bg-[#f3f7fd]">
           <div className="page-shell grid items-center gap-10 lg:grid-cols-[.82fr_1.18fr]">
             <div>
-              <SectionLead eyebrow="INSIDE THE SERVICE BAY" title="A platform made for the people doing the work." description="From the reception counter to the technician and the owner, every service job has a clear place." />
+              <SectionLead eyebrow="INSIDE THE SERVICE BAY" title="A platform made for the people doing the work" description="From the reception counter to the technician and the owner, every service job has a clear place." />
               <p className="mt-6 max-w-md text-[15px] leading-8 text-[#686b6e]">Organise vehicle records, job updates and invoices with a shared system. Modules and access depend on your workshop configuration.</p>
               <Link href="/signup" className="button-primary focus-ring mt-7">Start your workshop setup</Link>
             </div>
@@ -138,7 +138,7 @@ export default function Home() {
           </div>
         </section>
 
-        <BottomCTA eyebrow="GET STARTED WITH CUBEGEARS" title="Make room for better workshop operations." description="Set up your workspace, then choose the tools your car or motorcycle service team needs." href="/signup" label="Create workshop account" secondaryHref="/contact" secondaryLabel="Get in touch" />
+        <BottomCTA eyebrow="GET STARTED WITH CUBEGEARS" title="Make room for better workshop operations" description="Set up your workspace, then choose the tools your car or motorcycle service team needs." href="/signup" label="Create workshop account" secondaryHref="/contact" secondaryLabel="Get in touch" />
       </main>
       <PublicFooter />
     </>

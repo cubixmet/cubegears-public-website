@@ -33,7 +33,7 @@ export default function HowItWorksPage() {
     <>
       <PublicHeader />
       <main id="main-content" className="bg-[#f5f8ff]">
-        <PageHero dark eyebrow="THE SERVICE JOURNEY" title="From check-in to handover. One connected flow." description="Give car and bike service advisors, technicians and workshop managers a shared view of what needs to happen next." image="bikeService">
+        <PageHero dark eyebrow="THE SERVICE JOURNEY" title="From check-in to handover. One connected flow" description="Give car and bike service advisors, technicians and workshop managers a shared view of what needs to happen next." image="bikeService">
           <div className="marketing-flow-dark flex flex-wrap items-center gap-3 text-[13px] font-semibold text-blue-100">
             {["Check-in", "Approve", "Repair", "Deliver"].map((step) => (
               <span key={step} className="flex items-center gap-3">
@@ -46,7 +46,7 @@ export default function HowItWorksPage() {
 
         <section className="section-pad">
           <div className="page-shell">
-            <SectionLead eyebrow="THE WORKFLOW" title="Eight simple steps, organised into four stages." description="Each stage carries information forward so your team spends less time searching for updates." />
+            <SectionLead eyebrow="THE WORKFLOW" title="Eight simple steps, organised into four stages" description="Each stage carries information forward so your team spends less time searching for updates." />
             <ol className="mt-10 grid gap-5 lg:grid-cols-2">
               {phases.map((phase) => (
                 <li key={phase.number} className="marketing-card h-full p-6 sm:p-8">
@@ -75,7 +75,7 @@ export default function HowItWorksPage() {
         <section className=" border-[#e8effa] bg-white py-14 sm:py-18">
           <div className="page-shell grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
             <div>
-              <SectionLead eyebrow="SHARED INFORMATION" title="The details stay with the job." description="The people handling intake, service and billing can work from the same service record instead of recreating information at every handover." />
+              <SectionLead eyebrow="SHARED INFORMATION" title="The details stay with the job" description="The people handling intake, service and billing can work from the same service record instead of recreating information at every handover." />
             </div>
             <div className="marketing-card grid gap-3 p-6 sm:p-8">
               {["Customer & vehicle record", "Service notes & job status", "Parts, labour & estimate", "Invoice & visit history"].map((item) => (
@@ -87,7 +87,7 @@ export default function HowItWorksPage() {
             </div>
           </div>
         </section>
-        <BottomCTA eyebrow="READY FOR A CLEARER WORKFLOW?" title="Bring your workshop into one workspace." description="Create a workshop account and choose the features that match your operations." href="/signup" label="Create workshop account" secondaryHref="/for-workshops" secondaryLabel="Who it's for" />
+        <BottomCTA eyebrow="READY FOR A CLEARER WORKFLOW?" title="Bring your workshop into one workspace" description="Create a workshop account and choose the features that match your operations." href="/signup" label="Create workshop account" secondaryHref="/for-workshops" secondaryLabel="Who it's for" />
       </main>
       <PublicFooter />
     </>

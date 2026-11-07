@@ -22,7 +22,7 @@ export default function ContactPage() {
     <>
       <PublicHeader />
       <main id="main-content" className="bg-[#f5f8ff]">
-        <PageHero eyebrow="GET STARTED WITH CUBEGEARS" title="Let's get your workshop moving." description="Run a car garage or a two-wheeler service centre? Discover the next step for your team." image="bikeTeam">
+        <PageHero eyebrow="GET STARTED WITH CUBEGEARS" title="Let's get your workshop moving" description="Run a car garage or a two-wheeler service centre? Discover the next step for your team." image="bikeTeam">
           <div className="responsive-actions">
             <Link href="/signup" className="button-primary focus-ring inline-flex">Create workshop account</Link>
             {contactEmail ? (
@@ -36,7 +36,7 @@ export default function ContactPage() {
 
         <section className="section-pad">
           <div className="page-shell">
-            <SectionLead eyebrow="HERE'S HOW TO BEGIN" title="Choose your next step." description="Find product details and onboarding information without waiting for a sales call." />
+            <SectionLead eyebrow="HERE'S HOW TO BEGIN" title="Choose your next step" description="Find product details and onboarding information without waiting for a sales call." />
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {topics.map((topic) => (
                 <article key={topic.number} className="marketing-card surface-card-hover flex flex-col p-6 sm:p-8">

@@ -27,14 +27,14 @@ export default function PricingPage() {
     <>
       <PublicHeader />
       <main id="main-content" className="bg-[#f5f8ff]">
-        <PageHero eyebrow="FLEXIBLE FEATURE CREDITS" title="Only the workshop tools you choose to activate." description="Start with core tools for your car or motorcycle workshop, add optional modules and review your own usage rules." center image="team">
+        <PageHero eyebrow="FLEXIBLE FEATURE CREDITS" title="Only the workshop tools you choose to activate" description="Start with core tools for your car or motorcycle workshop, add optional modules and review your own usage rules." center image="team">
           <Link href="/signup" className="button-primary focus-ring inline-flex">Create workshop account</Link>
           <p className="mt-3 text-[13px] text-slate-500">No fixed public credit rates are shown here.</p>
         </PageHero>
 
         <section className="section-pad">
           <div className="page-shell">
-            <SectionLead eyebrow="HOW CREDIT BILLING WORKS" title="A clear path from setup to usage." description="Your workshop can start with the core workspace, then select the modules it uses for daily operations." />
+            <SectionLead eyebrow="HOW CREDIT BILLING WORKS" title="A clear path from setup to usage" description="Your workshop can start with the core workspace, then select the modules it uses for daily operations." />
             <div className="mt-10 grid gap-5 lg:grid-cols-3">
               {billing.map((item, index) => (
                 <article key={item.number} className={"marketing-card flex h-full flex-col p-6 sm:p-8 " + (index === 1 ? "shadow-[0_18px_50px_rgba(36,94,245,.12)]" : "")}>
@@ -63,7 +63,7 @@ export default function PricingPage() {
         <section className=" border-[#e8effa] bg-white py-14 sm:py-18">
           <div className="page-shell grid gap-10 lg:grid-cols-[.9fr_1.1fr]">
             <div>
-              <SectionLead eyebrow="COMMON QUESTIONS" title="Understand the billing model before you begin." description="Credit usage is designed to be visible in your workspace. Here are a few useful details about the setup." />
+              <SectionLead eyebrow="COMMON QUESTIONS" title="Understand the billing model before you begin" description="Credit usage is designed to be visible in your workspace. Here are a few useful details about the setup." />
               <Link href="/contact" className="focus-ring mt-6 inline-flex items-center gap-2 rounded-lg py-2 font-bold text-[#245bd5] hover:text-[#174399]">Questions about onboarding?</Link>
             </div>
             <div className="space-y-3">
@@ -78,7 +78,7 @@ export default function PricingPage() {
             </div>
           </div>
         </section>
-        <BottomCTA eyebrow="EXPLORE THE PLATFORM" title="See the tools behind your workshop workflow." description="Find the features that make sense for your workshop, then create your workspace." href="/features" label="Explore features" secondaryHref="/signup" secondaryLabel="Create account" />
+        <BottomCTA eyebrow="EXPLORE THE PLATFORM" title="See the tools behind your workshop workflow" description="Find the features that make sense for your workshop, then create your workspace." href="/features" label="Explore features" secondaryHref="/signup" secondaryLabel="Create account" />
       </main>
       <PublicFooter />
     </>

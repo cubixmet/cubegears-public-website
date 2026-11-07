@@ -23,7 +23,7 @@ export default function FeaturesPage() {
     <>
       <PublicHeader />
       <main id="main-content" className="bg-[#f5f8ff]">
-        <PageHero eyebrow="ONE CONNECTED WORKSPACE" title="Tools that work together, just like your team." description="For car garages and motorcycle service centres, CubixGears keeps every service visit connected from check-in to delivery." center image="garage">
+        <PageHero eyebrow="ONE CONNECTED WORKSPACE" title="Tools that work together, just like your team" description="For car garages and motorcycle service centres, CubixGears keeps every service visit connected from check-in to delivery." center image="garage">
           <div className="flex flex-wrap items-center justify-center gap-2">
             {["Customer & vehicle", "Job card", "Parts & labour", "Invoice"].map((step) => (
               <div key={step} className="flex items-center gap-2">
@@ -36,7 +36,7 @@ export default function FeaturesPage() {
 
         <section className="section-pad">
           <div className="page-shell">
-            <SectionLead eyebrow="WORKSHOP CAPABILITIES" title="Everything your workshop needs to stay organised." description="Explore the connected areas of your daily operation. Availability of optional modules depends on the features activated for your workspace." />
+            <SectionLead eyebrow="WORKSHOP CAPABILITIES" title="Everything your workshop needs to stay organised" description="Explore the connected areas of your daily operation. Availability of optional modules depends on the features activated for your workspace." />
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               {groups.map((group) => (
                 <article key={group.number} className="marketing-card surface-card-hover flex h-full flex-col p-6 sm:p-9">
@@ -58,7 +58,7 @@ export default function FeaturesPage() {
         <section className=" border-[#e8effa] bg-white py-14 sm:py-18">
           <div className="page-shell grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:items-center">
             <div>
-              <SectionLead eyebrow="CONNECTED BY DESIGN" title="One service visit. A clearer record." description="Keep the steps of a job together, from intake to final billing, instead of switching between spreadsheets and chat threads." />
+              <SectionLead eyebrow="CONNECTED BY DESIGN" title="One service visit. A clearer record" description="Keep the steps of a job together, from intake to final billing, instead of switching between spreadsheets and chat threads." />
               <Link href="/how-it-works" className="focus-ring mt-6 inline-flex items-center gap-2 rounded-lg py-2 font-bold text-[#245bd5] hover:text-[#174399]">See the service workflow</Link>
             </div>
             <div className="marketing-card p-6 sm:p-8">
@@ -79,7 +79,7 @@ export default function FeaturesPage() {
             </div>
           </div>
         </section>
-        <BottomCTA eyebrow="GROW AT YOUR OWN PACE" title="Choose the tools your team needs." description="Explore how modules and credit-based usage work before setting up your workspace." href="/pricing" label="Explore pricing" secondaryHref="/signup" secondaryLabel="Create account" />
+        <BottomCTA eyebrow="GROW AT YOUR OWN PACE" title="Choose the tools your team needs" description="Explore how modules and credit-based usage work before setting up your workspace." href="/pricing" label="Explore pricing" secondaryHref="/signup" secondaryLabel="Create account" />
       </main>
       <PublicFooter />
     </>

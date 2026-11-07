@@ -21,7 +21,7 @@ export default function SignupPage() {
               <p className="eyebrow">WORKSHOP SIGN UP</p>
               <span className="rounded-lg bg-[#eaf2ff] px-3 py-1.5 text-[11px] font-extrabold text-[#245bd5]">STEP 01 · WORKSHOP DETAILS</span>
             </div>
-            <h1 className="mt-5 text-[clamp(31px,4vw,46px)] font-extrabold leading-[1.12] tracking-[-.055em] text-[#10233f]">Create your workshop account.</h1>
+            <h1 className="mt-5 text-[clamp(31px,4vw,46px)] font-extrabold leading-[1.12] tracking-[-.055em] text-[#10233f]">Create your workshop account</h1>
             <p className="mt-4 max-w-[590px] text-[15px] leading-7 text-[#586a80]">
               Start your CubixGears workspace for car and motorcycle service. Enter your workshop and owner details to receive a secure password setup link by email.
             </p>

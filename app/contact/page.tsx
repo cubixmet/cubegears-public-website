@@ -6,7 +6,7 @@ import { PageHero, SectionLead } from "@/components/MarketingBlocks";
 
 export const metadata: Metadata = {
   title: "Contact & Onboarding",
-  description: "Find the right path to get started with CubixGears or learn more about workshop management.",
+  description: "Find the right path to get started with cubixgear or learn more about workshop management.",
 };
 
 const topics = [
@@ -22,7 +22,7 @@ export default function ContactPage() {
     <>
       <PublicHeader />
       <main id="main-content" className="bg-[#f5f8ff]">
-        <PageHero eyebrow="GET STARTED WITH CUBEGEARS" title="Let's get your workshop moving" description="Run a car garage or a two-wheeler service centre? Discover the next step for your team." image="bikeTeam">
+        <PageHero eyebrow="GET STARTED WITH cubixgear" title="Let's get your workshop moving" description="Run a car garage or a two-wheeler service centre? Discover the next step for your team." image="bikeTeam">
           <div className="responsive-actions">
             <Link href="/signup" className="button-primary focus-ring inline-flex">Create workshop account</Link>
             {contactEmail ? (
@@ -53,7 +53,7 @@ export default function ContactPage() {
         <section className=" border-[#e8effa] bg-white py-14 sm:py-18">
           <div className="page-shell grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
             <div>
-              <SectionLead eyebrow="ACCOUNT ONBOARDING" title="What happens when you sign up?" description="Start with your workshop details and the owner's contact information. Registration is connected to the CubixGears account setup service." />
+              <SectionLead eyebrow="ACCOUNT ONBOARDING" title="What happens when you sign up?" description="Start with your workshop details and the owner's contact information. Registration is connected to the cubixgear account setup service." />
               <Link href="/signup" className="button-primary focus-ring mt-7 inline-flex">Start registration</Link>
             </div>
             <ol className="marketing-card space-y-0 p-6 sm:p-8">

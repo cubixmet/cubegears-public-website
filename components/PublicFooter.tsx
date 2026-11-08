@@ -38,7 +38,7 @@ export function PublicFooter() {
       </div>
       <div className=" border-white/10">
         <div className="page-shell flex flex-col gap-3 py-5 text-[13px] text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} CubixGears. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} cubixgear. All rights reserved.</p>
           <p>Made for car and motorcycle service teams.</p>
         </div>
       </div>

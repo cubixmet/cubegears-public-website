@@ -1,6 +1,6 @@
-# CubixGears public website
+# cubixgear public website
 
-Marketing and workshop onboarding website for CubixGears, built with **Next.js 16, React 19, TypeScript and Tailwind CSS 4**.
+Marketing and workshop onboarding website for cubixgear, built with **Next.js 16, React 19, TypeScript and Tailwind CSS 4**.
 
 ## Pages
 

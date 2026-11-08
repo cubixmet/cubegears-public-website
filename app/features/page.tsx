@@ -23,7 +23,7 @@ export default function FeaturesPage() {
     <>
       <PublicHeader />
       <main id="main-content" className="bg-[#f5f8ff]">
-        <PageHero eyebrow="ONE CONNECTED WORKSPACE" title="Tools that work together, just like your team" description="For car garages and motorcycle service centres, CubixGears keeps every service visit connected from check-in to delivery." center image="garage">
+        <PageHero eyebrow="ONE CONNECTED WORKSPACE" title="Tools that work together, just like your team" description="For car garages and motorcycle service centres, cubixgear keeps every service visit connected from check-in to delivery." center image="garage">
           <div className="flex flex-wrap items-center justify-center gap-2">
             {["Customer & vehicle", "Job card", "Parts & labour", "Invoice"].map((step) => (
               <div key={step} className="flex items-center gap-2">

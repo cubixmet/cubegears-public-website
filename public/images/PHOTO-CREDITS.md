@@ -1,8 +1,8 @@
-# CubixGears workshop photo credits
+# cubixgear workshop photo credits
 
 These nine automotive and two-wheeler photographs are locally stored in `public/images/`. The live website loads **only local WebP files**; it does not hotlink an image CDN.
 
-Each image was downloaded from Pexels, converted to WebP for web delivery, and is credited for provenance. Pexels permits free personal and commercial use under its [license](https://www.pexels.com/license/). These are illustrative stock photos, not customer or CubixGears employee photos.
+Each image was downloaded from Pexels, converted to WebP for web delivery, and is credited for provenance. Pexels permits free personal and commercial use under its [license](https://www.pexels.com/license/). These are illustrative stock photos, not customer or cubixgear employee photos.
 
 | Local file | Source photo |
 | --- | --- |

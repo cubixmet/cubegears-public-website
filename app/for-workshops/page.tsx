@@ -7,7 +7,7 @@ import { WorkshopPhoto } from "@/components/WorkshopPhoto";
 
 export const metadata: Metadata = {
   title: "For Automobile Workshops",
-  description: "CubixGears workshop management for car garages, motorcycle service centres, specialist and multi-branch operations.",
+  description: "cubixgear workshop management for car garages, motorcycle service centres, specialist and multi-branch operations.",
 };
 
 const workshopTypes = [

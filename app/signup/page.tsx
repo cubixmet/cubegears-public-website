@@ -5,8 +5,8 @@ import { PublicFooter } from "@/components/PublicFooter";
 import SignupForm from "./signup-form";
 
 export const metadata: Metadata = {
-  title: "Create Workshop Account | CubixGears",
-  description: "Register your car garage, bike workshop or automotive service centre and create your CubixGears workspace.",
+  title: "Create Workshop Account | cubixgear",
+  description: "Register your car garage, bike workshop or automotive service centre and create your cubixgear workspace.",
   robots: { index: false, follow: false },
 };
 
@@ -23,7 +23,7 @@ export default function SignupPage() {
             </div>
             <h1 className="mt-5 text-[clamp(31px,4vw,46px)] font-extrabold leading-[1.12] tracking-[-.055em] text-[#10233f]">Create your workshop account</h1>
             <p className="mt-4 max-w-[590px] text-[15px] leading-7 text-[#586a80]">
-              Start your CubixGears workspace for car and motorcycle service. Enter your workshop and owner details to receive a secure password setup link by email.
+              Start your cubixgear workspace for car and motorcycle service. Enter your workshop and owner details to receive a secure password setup link by email.
             </p>
 
             <div className="mt-8">

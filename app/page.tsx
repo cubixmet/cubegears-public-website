@@ -95,7 +95,7 @@ export default function Home() {
               <h2 className="photo-punchline mt-5">Your team stays connected, wherever the job happens</h2>
             </WorkshopPhoto>
             <div>
-              <SectionLead eyebrow="FOR CARS AND TWO-WHEELERS" title="One approach, different service needs" description="Whether you service a family car, motorbike or scooter, CubixGears keeps the job information, service history and daily operations organised." />
+              <SectionLead eyebrow="FOR CARS AND TWO-WHEELERS" title="One approach, different service needs" description="Whether you service a family car, motorbike or scooter, cubixgear keeps the job information, service history and daily operations organised." />
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-xl border border-[#e5edf9] bg-white p-5">
                   <h3 className="mt-4 text-lg font-extrabold">Automotive garages</h3>
@@ -138,7 +138,7 @@ export default function Home() {
           </div>
         </section>
 
-        <BottomCTA eyebrow="GET STARTED WITH CUBEGEARS" title="Make room for better workshop operations" description="Set up your workspace, then choose the tools your car or motorcycle service team needs." href="/signup" label="Create workshop account" secondaryHref="/contact" secondaryLabel="Get in touch" />
+        <BottomCTA eyebrow="GET STARTED WITH cubixgear" title="Make room for better workshop operations" description="Set up your workspace, then choose the tools your car or motorcycle service team needs." href="/signup" label="Create workshop account" secondaryHref="/contact" secondaryLabel="Get in touch" />
       </main>
       <PublicFooter />
     </>

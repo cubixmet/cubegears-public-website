@@ -21,11 +21,11 @@ export default function SignupSuccessPage() {
               <ol className="mt-4 space-y-3 text-[14px] leading-6 text-slate-700">
                 <li className="flex gap-3"><span className="font-extrabold text-[#245bd5]">01</span> Open the secure setup message sent to your email.</li>
                 <li className="flex gap-3"><span className="font-extrabold text-[#245bd5]">02</span> Follow the secure link and create your password.</li>
-                <li className="flex gap-3"><span className="font-extrabold text-[#245bd5]">03</span> Sign in through the CubixGears Company Panel and complete workshop setup.</li>
+                <li className="flex gap-3"><span className="font-extrabold text-[#245bd5]">03</span> Sign in through the cubixgear Company Panel and complete workshop setup.</li>
               </ol>
             </div>
             <div className="responsive-actions mt-8 justify-center">
-              <Link href="/" className="button-primary focus-ring inline-flex">Back to CubixGears</Link>
+              <Link href="/" className="button-primary focus-ring inline-flex">Back to cubixgear</Link>
               <Link href="/contact" className="button-secondary focus-ring">Need more guidance?</Link>
             </div>
           </div>

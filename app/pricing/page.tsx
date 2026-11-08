@@ -6,7 +6,7 @@ import { BottomCTA, PageHero, SectionLead } from "@/components/MarketingBlocks";
 
 export const metadata: Metadata = {
   title: "Feature Credits & Billing",
-  description: "Understand CubixGears flexible feature credits, optional modules and storage billing.",
+  description: "Understand cubixgear flexible feature credits, optional modules and storage billing.",
 };
 
 const billing = [
@@ -16,7 +16,7 @@ const billing = [
 ];
 
 const faqs = [
-  ["Is CubixGears a fixed monthly subscription?", "CubixGears uses feature credits instead of the old fixed Starter and Growth subscriptions. Billing depends on the modules and rules configured for your workspace."],
+  ["Is cubixgear a fixed monthly subscription?", "cubixgear uses feature credits instead of the old fixed Starter and Growth subscriptions. Billing depends on the modules and rules configured for your workspace."],
   ["Where can I see the current credit prices?", "Current feature-credit rates and minimum rules are configured by the SaaS administrator. Check the applicable charges in your workspace before activating a paid feature."],
   ["How is storage billed?", "Free allowances, storage rates and the billing method depend on platform settings. The applicable records and charges can be reviewed in your workspace."],
   ["When are credits settled?", "The settlement schedule is controlled by platform billing settings. Check your workspace for the current billing calendar and any payment due dates."],
@@ -55,7 +55,7 @@ export default function PricingPage() {
             </div>
             <div className="mt-7 flex flex-col gap-4 rounded-2xl border border-blue-200 bg-[#eff5ff] px-6 py-6 text-[14px] leading-7 text-[#23416b] sm:flex-row sm:items-start sm:px-8">
               <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-xl font-extrabold text-[#2563eb]" aria-hidden="true">i</span>
-              <p><strong>Important:</strong> Live credit prices, minimum credit rules, storage charges and settlement dates are set by the SaaS administrator. The exact charges may vary with configuration. Always review the current rates inside CubixGears before activating paid tools.</p>
+              <p><strong>Important:</strong> Live credit prices, minimum credit rules, storage charges and settlement dates are set by the SaaS administrator. The exact charges may vary with configuration. Always review the current rates inside cubixgear before activating paid tools.</p>
             </div>
           </div>
         </section>

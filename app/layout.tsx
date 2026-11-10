@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   description:
     "Manage car and motorcycle workshop customers, vehicles, job cards, inventory, invoices, staff and reports in one connected platform.",
   applicationName: "cubixgear",
+  icons: {
+    icon: [{ url: "/logo/logo.png", type: "image/png" }],
+    shortcut: "/logo/logo.png",
+    apple: "/logo/logo.png",
+  },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",

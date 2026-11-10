@@ -26,7 +26,26 @@ Install Node.js 22 and run:
     cp .env.example .env.local
     npm run dev
 
-Open http://localhost:3000.
+Open http://localhost:3000. The default `npm run dev` uses Next.js 16's
+Turbopack bundler, which avoids Webpack's large development cache allocations.
+The production `npm run build` continues using Webpack unchanged.
+
+### Windows: development server runs out of memory
+
+If the terminal reports `[webpack.cache.PackFileCacheStrategy]` followed by
+`RangeError: Array buffer allocation failed` while compiling `/signup`,
+stop the development server (Ctrl+C) and clear only the generated build cache:
+
+```powershell
+Remove-Item -Recurse -Force .next -ErrorAction SilentlyContinue
+npm run dev
+```
+
+To use the older Webpack dev bundler for troubleshooting, run
+`npm run dev:webpack`. The previous `npm run dev:turbo` alias is
+still supported. This change does not affect signup form handling or API routes.
+Use Node.js 22 and check available system memory if the process still crashes.
+Do not delete `.env` or `.env.local` when clearing `.next`.
 
 ## Backend
 

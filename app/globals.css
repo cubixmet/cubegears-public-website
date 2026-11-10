@@ -37,7 +37,11 @@ a { color: inherit; text-decoration: none; }
   background: rgba(255, 255, 255, .96); border-bottom: 0;
   backdrop-filter: blur(18px);
 }
-.brand-link { display: inline-flex; align-items: center; gap: 0; flex-shrink: 0; border-radius: 8px; }
+.brand-link { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; border-radius: 8px; }
+.brand-image { display: block; width: 40px; height: 40px; flex: 0 0 40px; object-fit: contain; }
+@media (max-width: 420px) {
+  .brand-image { width: 34px; height: 34px; flex-basis: 34px; }
+}
 .brand-name { display: flex; flex-wrap: wrap; align-items: baseline; width: max-content; max-width: 100%; font-size: 22px; line-height: 1.12; font-weight: 850; letter-spacing: -.055em; }
 .brand-descriptor { width: 100%; color: #8c8c91; font-size: 8px; line-height: 1.7; font-weight: 800; letter-spacing: .17em; }
 .site-nav-link {

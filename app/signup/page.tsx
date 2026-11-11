@@ -32,7 +32,7 @@ export default function SignupPage() {
 
             <p className="mt-6 text-center text-[14px] leading-7 text-[#586a80]">
               Already have a workshop account?{" "}
-              <a href='https://app.cubixgear.tech/' className="focus-ring inline-flex min-h-11 items-center font-extrabold text-[#245bd5] hover:underline">Sign in</a>
+              <Link href='https://app.cubixgear.tech/' className="focus-ring inline-flex min-h-11 items-center font-extrabold text-[#245bd5] hover:underline">Sign in</Link>
             </p>
             <p className="mt-2 text-center text-[12px] leading-6 text-[#78869a]">
               After registration, complete your password setup from the secure email link.

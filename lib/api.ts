@@ -50,6 +50,18 @@ function getApiErrorMessage(data: unknown, status: number): string {
   return `Registration failed (HTTP ${status}). Please check your details or contact support.`;
 }
 
+// Preserve safe Django field errors so signup can highlight the relevant
+// input rather than showing a generic failure at the bottom of the form.
+export class SignupApiError extends Error {
+  readonly fieldErrors: { mobile?: string };
+
+  constructor(message: string, fieldErrors: { mobile?: string } = {}) {
+    super(message);
+    this.name = "SignupApiError";
+    this.fieldErrors = fieldErrors;
+  }
+}
+
 export async function createWorkshopAccount(
   payload: WorkshopSignupPayload,
 ): Promise<SignupResponse> {
@@ -65,7 +77,16 @@ export async function createWorkshopAccount(
   const data = (await response.json().catch(() => ({}))) as SignupResponse;
 
   if (!response.ok) {
-    throw new Error(getApiErrorMessage(data, response.status));
+    const message = getApiErrorMessage(data, response.status);
+    const mobile = data && typeof data === "object" && !Array.isArray(data)
+      ? (data as Record<string, unknown>).mobile
+      : null;
+    const mobileError = typeof mobile === "string"
+      ? mobile
+      : Array.isArray(mobile) && typeof mobile[0] === "string"
+        ? mobile[0]
+        : undefined;
+    throw new SignupApiError(message, mobileError ? { mobile: mobileError } : {});
   }
 
   return data;

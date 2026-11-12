@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { createWorkshopAccount } from "@/lib/api";
+import { createWorkshopAccount, SignupApiError } from "@/lib/api";
 
 type FormState = {
   workshopName: string;
@@ -38,11 +38,13 @@ export default function SignupForm() {
   const router = useRouter();
   const [form, setForm] = useState<FormState>(initialForm);
   const [error, setError] = useState("");
+  const [mobileError, setMobileError] = useState("");
   const [loading, setLoading] = useState(false);
   const selectedCountry = countryCodes.find((country) => country.code === form.countryCode) ?? countryCodes[0];
 
   function setField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [key]: value }));
+    if (key === "mobile") setMobileError("");
     setError("");
   }
 
@@ -50,6 +52,7 @@ export default function SignupForm() {
     event.preventDefault();
     if (loading) return;
     setError("");
+    setMobileError("");
 
     const workshopName = form.workshopName.trim();
     const ownerName = form.ownerName.trim();
@@ -65,7 +68,7 @@ export default function SignupForm() {
       return;
     }
     if (localMobile.length !== selectedCountry.digits || !/^\+\d{10,15}$/.test(mobile)) {
-      setError(`Enter a valid ${selectedCountry.digits}-digit mobile number for ${selectedCountry.name}.`);
+      setMobileError(`Enter a valid ${selectedCountry.digits}-digit mobile number for ${selectedCountry.name}.`);
       return;
     }
     if (!email) {
@@ -88,8 +91,13 @@ export default function SignupForm() {
       });
       router.push("/signup/success");
     } catch (err) {
-      const message = err instanceof Error ? err.message : "Something went wrong. Please try again.";
-      setError(message);
+      if (err instanceof SignupApiError && err.fieldErrors.mobile) {
+        setMobileError(err.fieldErrors.mobile);
+        setError("");
+      } else {
+        const message = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+        setError(message);
+      }
     } finally {
       setLoading(false);
     }
@@ -118,6 +126,7 @@ export default function SignupForm() {
                 // The national number must be entered again when changing country:
                 // a number from the previous country may have a different length.
                 setForm((current) => ({ ...current, countryCode: e.target.value, mobile: "" }));
+                setMobileError("");
                 setError("");
               }}
               className="signup-input signup-country text-[13px] font-semibold"
@@ -129,7 +138,9 @@ export default function SignupForm() {
             <input
               id="mobile"
               name="mobile"
-              className={phoneFieldClass}
+              className={phoneFieldClass + (mobileError ? " !border-red-500 focus:!border-red-600" : "")}
+              aria-invalid={Boolean(mobileError)}
+              aria-describedby={mobileError ? "signup-mobile-error" : undefined}
               placeholder={`${selectedCountry.digits}-digit number`}
               type="tel"
               inputMode="numeric"
@@ -141,6 +152,11 @@ export default function SignupForm() {
               required
             />
           </div>
+          {mobileError ? (
+            <p id="signup-mobile-error" role="alert" className="mt-2 text-[12px] font-medium leading-relaxed text-red-600">
+              {mobileError}
+            </p>
+          ) : null}
         </div>
       </div>
       <div>

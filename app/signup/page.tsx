@@ -30,14 +30,19 @@ export default function SignupPage() {
               <SignupForm />
             </div>
 
-            <p className="mt-6 text-center text-[14px] leading-7 text-[#586a80]">
-              Already have a workshop account?{" "}
-              <Link href='https://app.cubixgear.tech/' className="focus-ring inline-flex min-h-11 items-center font-extrabold text-[#245bd5] hover:underline">Sign in</Link>
-            </p>
             <p className="mt-2 text-center text-[12px] leading-6 text-[#78869a]">
               After registration, complete your password setup from the secure email link.
             </p>
           </div>
+          <p className="mt-6 text-center text-[14px] text-[#586a80]">
+            Already registered?{" "}
+            <a
+              href="https://app.cubixgear.tech/login"
+              className="focus-ring rounded-md font-bold text-[#245bd5] underline-offset-4 hover:underline"
+            >
+              Sign in
+            </a>
+          </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-center text-[13px] text-[#65758b]">
             <Link href="/features" className="font-bold text-[#245bd5] hover:underline">Explore platform features</Link>
             <Link href="/how-it-works" className="font-bold text-[#245bd5] hover:underline">Learn how it works</Link>

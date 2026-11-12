@@ -54,6 +54,7 @@ export function PublicHeader() {
 
   const closeMenu = () => setMenuOpen(false);
   const current = (href: string) => pathname === href;
+  const isSignupPage = pathname === "/signup";
 
   return (
     <header className="site-header">
@@ -77,14 +78,18 @@ export function PublicHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-          <Link
-            href="/signup"
-            scroll
-            aria-current={pathname === "/signup" ? "page" : undefined}
-            className="button-primary focus-ring hidden sm:inline-flex"
-          >
-            Get started
-          </Link>
+          {isSignupPage ? (
+            <a
+              href="https://app.cubixgear.tech/login"
+              className="button-primary site-signin-button focus-ring"
+            >
+              Sign in
+            </a>
+          ) : (
+            <Link href="/signup" scroll className="button-primary focus-ring hidden sm:inline-flex">
+              Get started
+            </Link>
+          )}
           <button
             ref={menuButtonRef}
             type="button"
@@ -133,15 +138,16 @@ export function PublicHeader() {
               {current(href) ? <span className="text-xs font-extrabold text-[#245bd5]">Current</span> : null}
             </Link>
           ))}
-          <Link
-            href="/signup"
-            scroll
-            onClick={closeMenu}
-            aria-current={pathname === "/signup" ? "page" : undefined}
-            className="button-primary focus-ring mt-3 inline-flex w-full justify-center sm:hidden"
-          >
-            Create workshop account
-          </Link>
+          {!isSignupPage && (
+            <Link
+              href="/signup"
+              scroll
+              onClick={closeMenu}
+              className="button-primary focus-ring mt-3 inline-flex w-full justify-center sm:hidden"
+            >
+              Create workshop account
+            </Link>
+          )}
         </nav>
       </div>
     </header>
